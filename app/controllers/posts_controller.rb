@@ -12,6 +12,9 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
+      # renders an error list
+      # prefills fields
+      #has error class on bad fields
       render :edit
     end
   end
