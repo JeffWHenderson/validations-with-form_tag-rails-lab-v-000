@@ -7,7 +7,7 @@ Conditionally wrap each field in a .field_with_errors div if it has errors.
 <%= form_tag post_path(@post), method: "patch" do %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2>Yo! You Got Errors!</h2>
+      <h2>Yo! You Got <%= @post.errors.size %> Errors!</h2>
       <ul>
         <% @post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -15,10 +15,6 @@ Conditionally wrap each field in a .field_with_errors div if it has errors.
       </ul>
     </div>
   <% end %>
-
-
-
-
 
 
 
