@@ -14,6 +14,9 @@ class AuthorsController < ApplicationController
       redirect_to author_path(@author)
     else
       #here is where i can have the bad infor saved and add a message to user and fill in form
+      # renders an error list
+      # prefills fields
+      #has error class on bad fields
       render :new
     end
   end
