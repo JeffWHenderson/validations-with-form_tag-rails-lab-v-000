@@ -8,45 +8,18 @@ Conditionally wrap each field in a .field_with_errors div if it has errors.
 <%= form_tag authors_path, method: "post" do %>
   <div class="field">
     <%= label_tag "name", "Name" %>
-    <%= text_field_tag "name", @author.name %>
+    <%= text_field_tag "name", @author.name  %>
   </div>
 
   <div class="field">
     <%= label_tag "email", "Email" %>
-    <%= text_field_tag "email" %>
+    <%= text_field_tag "email", @author.email %>
   </div>
 
   <div class="field">
     <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone_number" %>
+    <%= text_field_tag "phone_number", @author.phone_number %>
   </div>
 
-  <%= submit_tag "Create" %>
-<% end %>
-
-
-<%= form_tag("/people") do %>
-  <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2>There were some errors:</h2>
-      <ul>
-        <% @person.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
- 
-  <div class="field<%= ' field_with_errors' if @person.errors[:name].any? %>">
-    <%= label_tag "name", "Name" %>
-    <%= text_field_tag "name", @person.name %>
-  </div>
- 
-  <div class="field<%= ' field_with_errors' if @person.errors[:email].any? %>">
-    <%= label_tag "email", "Email" %>
-    <%= text_field_tag "email", @person.email %>
-  </div>
- 
   <%= submit_tag "Create" %>
 <% end %>
