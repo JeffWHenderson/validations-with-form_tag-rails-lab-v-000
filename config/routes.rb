@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :authors#, only: [:new, :show, :create]
-  resources :posts#, only: [:show, :edit, :update]
+  resources :authors, only: [:new, :show, :create]
+  resources :posts, only: [:show, :edit, :update]
 
   # get "/authors/new", to: "authors#new", as: "new_author"
   # get "/authors/:id", to: "authors#show", as: "author"
