@@ -8,9 +8,14 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    @author = Author.create(author_params)
-
-    redirect_to author_path(@author)
+    @author = Author.new(author_params)
+    if @author.valid?
+      @author = Author.create(author_params)
+      redirect_to author_path(@author)
+    else
+      #here is where i can have the bad infor saved and add a message to user and fill in form
+      render :new
+    end
   end
 
   private
